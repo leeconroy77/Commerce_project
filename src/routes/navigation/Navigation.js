@@ -24,7 +24,7 @@ const Navigation = () => {
           <Link className='nav-link' to="/contact">
             CONTACT
           </Link>
-          <Link className='nav-link' to="/auth">
+          <Link className='nav-link' to="/signIn">
             SIGN-IN
           </Link>
         </div>          
