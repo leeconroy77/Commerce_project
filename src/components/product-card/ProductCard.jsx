@@ -1,18 +1,16 @@
 import React from 'react'
 
+import { useContext } from 'react';
+import { CartContext} from '../../context/Cart.context';
+
 import Button from '../button/Button'
 import './productCard.styles.scss'
 
 const ProductCard = ({product}) => {
   const {name, price, imageUrl } = product;
+  const {addItemsToCart} = useContext(CartContext)
 
-  const selectedItems = []
-
- const handleSectedItems = () => {
-   selectedItems.push(name)
-  }
-
-  console.log(selectedItems);
+  const addProductToCart = () => addItemsToCart(product)
   
 
   return (
@@ -22,7 +20,7 @@ const ProductCard = ({product}) => {
         <span className="name">{name}</span>
         <span className="price">{price}</span>
       </div>
-      <Button buttonType='inverted' onClick={handleSectedItems}>Add to card</Button>
+      <Button buttonType='inverted' onClick={addProductToCart} >Add to card</Button>
     </div>
   )
 }
