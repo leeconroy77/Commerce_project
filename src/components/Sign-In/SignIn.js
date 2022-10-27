@@ -7,7 +7,6 @@ import {
   signInWithGooglePopup,
   createUserDocumentFromAuth,
   signInAuthUserWithEmailAndPassword,
-
 } from '../../utils/Firebase';
 
 import './sign-in.styles.scss';
