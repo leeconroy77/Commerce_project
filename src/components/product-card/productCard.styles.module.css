@@ -46,7 +46,7 @@
   justify-self: flex-end;
   justify-content: center;
   position: absolute;
-  margin-top: 88%;
+  margin-top: 50%;
   }
 
   .productCardContainer:hover .button {
