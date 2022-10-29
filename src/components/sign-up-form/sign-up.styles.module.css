@@ -21,7 +21,7 @@
     letter-spacing: 0.5px;
     line-height: 50px;
     font-size: 12px;
-    border: 1px transparent black;
+    border: 1px solid black;
   }
 
   .normalButton:hover {
