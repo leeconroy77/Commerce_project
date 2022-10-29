@@ -4,7 +4,7 @@ import { useContext } from 'react'
 
 import { CartContext } from '../../context/Cart.context'
 
-import './cart-icon.styles.scss'
+import styles from './cart-icon.styles.module.css'
 
 
 const CartIcon = () => {
@@ -17,9 +17,9 @@ const CartIcon = () => {
   
 
   return (
-    <div className='cart-icon-container' onClick={handleClick}>
-      <ShoppingIcon className='shopping-icon'/>
-      <span className='item-count'>{cartCounter}</span>
+    <div className={styles.cartIconContainer}  onClick={handleClick}>
+      <ShoppingIcon className={styles.shoppingIcon} />
+        <span className={styles.itemCount} >{cartCounter}</span>
     </div>
   )
 }

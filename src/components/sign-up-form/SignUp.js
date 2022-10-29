@@ -8,7 +8,8 @@ import {
   createUserDocumentFromAuth,
 } from '../../utils/Firebase';
 
-import './sign-up.styles.scss';
+import styles from './sign-up.styles.module.css'
+
 
 const defaultFormFields = {
   displayName: '',
@@ -60,7 +61,7 @@ const SignUpForm = () => {
   };
 
   return (
-    <div className="sign-up-container">
+    <div className={styles.signUpContainer} >
       <h2>Don't have an account?</h2>
       <span>Sign up with your email and password</span>
       <form onSubmit={handleSubmit}>

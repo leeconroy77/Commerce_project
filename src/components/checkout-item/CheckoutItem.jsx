@@ -4,8 +4,7 @@ import { CartContext } from '../../context/Cart.context';
 import { AiFillCaretLeft } from "react-icons/ai";
 import { AiFillCaretRight } from "react-icons/ai";
 import { AiOutlineClose } from "react-icons/ai";
-import './checkout-item.scss'
-
+import styles from './checkout-item.module.css'
 
 const CheckoutItem = ({cartItem, handleDelete}) => {
 
@@ -20,20 +19,20 @@ const CheckoutItem = ({cartItem, handleDelete}) => {
 const itemPrice = quantity * price
 
   return (
-    <div className='checkout-item-container'>
-        <div className='image-container'>
-          <img src={imageUrl} alt={`${name}`} />  
+    <div className={styles.checkoutItemContainer} >
+        <div className={styles.imageContainer} >
+          <img className={styles.image}  src={imageUrl} alt={`${name}`} />  
         </div>    
-        <span className='name'>{name}</span>
-        <span className='quantity'>
-          <AiFillCaretLeft onClick={() => decrimentCartItem(cartItem)} className='arrow'/>
+        <span className={styles.name} >{name}</span>
+        <span className={styles.quantity} >
+          <AiFillCaretLeft onClick={() => decrimentCartItem(cartItem)} className={styles.arrow} />
           {quantity} 
-          <AiFillCaretRight onClick={() => addItemsToCart(cartItem)} className='arrow'/>
+          <AiFillCaretRight onClick={() => addItemsToCart(cartItem)} className={styles.arrow} />
          </span>
-        <span className='price'>
+        <span className={styles.price} >
         £{itemPrice}
         </span>
-        <span><AiOutlineClose onClick={() => removeItemsFromCart(cartItem)} className='remove-button'/></span>
+        <span><AiOutlineClose onClick={() => removeItemsFromCart(cartItem)} className={styles.removeButton} /></span>
 
     </div>
   )

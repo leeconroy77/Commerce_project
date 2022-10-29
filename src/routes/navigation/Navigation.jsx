@@ -9,7 +9,7 @@ import CartIcon from '../../components/cart-icon/CartIcon'
 import CartDropdown from '../../components/cart-dropdown/CartDropdown'
 
 
-import './navigation.styles.scss'
+import styles from './navigation.module.css';
 
 
 const Navigation = () => {
@@ -20,26 +20,26 @@ const Navigation = () => {
   const handleClick = () => 
     setIsCartOpen(!isCartOpen);
 
-  
+
 
 
   return (
     <Fragment>
-      <div className='navigation'>
-        <Link className='logo-container' to="/">
+      <div className = {styles.navigation}>
+        <Link className={styles.logoContainer} to="/">
           <CrownLogo />
         </Link>
-        <div className="nav-links-container">
-          <Link className='nav-link' to="/shop">
+        <div className={styles.navLinksContainer}>
+          <Link className={styles.navLink} to="/shop">
             SHOP
           </Link>
-          <Link className='nav-link' to="/contact">
+          <Link className={styles.navLink} to="/contact">
             CONTACT
           </Link>
           {
             currentUser ? (
-              <span className='nav-link' onClick={signOutUser}>SIGN OUT</span>
-              ) : (<Link className='nav-link' to="/authentication">
+              <span className={styles.navLink} onClick={signOutUser}>SIGN OUT</span>
+              ) : (<Link className={styles.navLink} to="/authentication">
             SIGN IN 
                 </Link>
             )            

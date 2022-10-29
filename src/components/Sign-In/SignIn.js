@@ -9,8 +9,7 @@ import {
   signInAuthUserWithEmailAndPassword,
 } from '../../utils/Firebase';
 
-import './sign-in.styles.scss';
-
+import styles from './sign-in.styles.module.css'
 
 
 const defaultFormFields = {
@@ -65,8 +64,8 @@ const SignInForm = () => {
   };
 
   return (
-    <div className='sign-in-container'>
-      <h2>Already have an account?</h2>
+    <div className={styles.signInContainer} >
+      <h2 className={styles.h2} >Already have an account?</h2>
       <span>Sign in with your email and password</span>
       <form onSubmit={handleSubmit}>
         <FormInput
@@ -86,7 +85,7 @@ const SignInForm = () => {
           name='password'
           value={password}
         />
-        <div className='buttons-container'>
+        <div className={styles.buttonsContainer} >
           <Button type='submit'>Sign In</Button>
           <Button
             // buttonType={BUTTON_TYPE_CLASSES.google}

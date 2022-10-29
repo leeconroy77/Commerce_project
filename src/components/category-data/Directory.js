@@ -1,14 +1,13 @@
 import React from 'react'
-import CategoryItem from '../category-item/CategoryItem'
-import './directory.styles.scss'
-
+import DirectoryItem from '../directory-item/DirectoryItem'
+import styles from './directory.styles.module.css'
 
 
 const Directory = ({categories}) => {
   return (
-    <div className="categories-container">
+    <div className={styles.categoriesContainer} >
     {categories.map((category) => (
-      <CategoryItem key={category.id} category={category} />
+      <DirectoryItem key={category.id} category={category} />
   ))}
   </div>
   )
