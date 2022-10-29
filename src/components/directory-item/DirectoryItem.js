@@ -10,7 +10,7 @@ const DirectoryItem = ({ category}) => {
   return (
     <div  className={styles.directoryContainer} >  
         <div className={styles.backgroundImage}  style={{backgroundImage: `url(${imageUrl})`}}/>
-          <Link className={styles.categoryBodyContainer}  to={`/shop/${title}`}>            
+          <Link className={styles.directoryItemBody}  to={`/shop/${title}`}>            
             <h2 className={styles.h2} >{title}</h2>
             <p className={styles.p} >Shop Now</p>
           </Link>

@@ -1,15 +1,12 @@
 import React from 'react'
 
-
-
 import SignUpForm from "../../components/sign-up-form/SignUp";
 import SignInForm from "../../components/Sign-In/SignIn";
 
-import "./authenticaton.styles.scss";
-
+import styles from './authenticaton.styles.module.css'
 const Authentication = () => {
   return (
-    <div className="authentication-container">
+    <div className={styles.authenticationContainer} >
       <SignInForm />
       <SignUpForm />
     </div>

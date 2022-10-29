@@ -23,8 +23,8 @@ const Checkout = () => {
 
   return (
     <div className={styles.checkoutContainer } >
-      <div className='checkout-header'>
-        <h4 className={styles.checkoutHeader} >product</h4>
+      <div className={styles.checkoutHeader} >
+        <h4 className={styles.headerBlock} >product</h4>
         <h4 className={styles.headerBlock} >quantity</h4>
         <h4 className={styles.headerBlock}>description</h4>
         <h4 className={styles.headerBlock}>price</h4>
@@ -33,7 +33,8 @@ const Checkout = () => {
       {cartItems.map((cardItem) => (
         <CheckoutItem key={cardItem.id} cartItem={cardItem} handleDelete={handleDelete}/>
       ))}
-      <div className={styles.total} >£{cartTotal}</div>
+      {cartTotal > 0 ? <div className={styles.total} >£{cartTotal}</div> : ""}
+      
     </div>
     
   )
