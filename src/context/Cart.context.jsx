@@ -1,4 +1,6 @@
-import { createContext, useState, useEffect} from 'react';
+import { createContext, useState, useEffect, useReducer} from 'react';
+
+
 
 const addCartItem = (cartItems, productToAdd) => {
 
@@ -52,9 +54,79 @@ export const CartContext = createContext({
 
 });
 
+
+export const CART_ACTION_TYPES = {
+  SET_IS_CART_OPEN: 'SET_IS_CART_OPEN',
+  SET_CART_ITEMS: 'SET_CART_ITEMS',
+  SET_INCREMENT_CART_COUNTER: 'SET_INCREMENT_CART_COUNTER',
+  SET_DECREMENT_CART_COUNTER: 'SET_DECREMENT_CART_COUNTER',
+  SET_REMOVE_CART_ITEMS: 'SET_REMOVE_CART_ITEMS',
+  SET_CART_ITEMS_TOTAL: 'SET_CART_ITEMS_TOTAL',
+
+}
+
+const cartReducer = (state, action) => {
+  const { type, payload } = action;
+
+  switch(type) {
+    case CART_ACTION_TYPES.SET_IS_CART_OPEN:
+      return {
+        ...state,
+        isCartOpen: payload,
+      };
+      case CART_ACTION_TYPES.SET_CART_ITEMS:
+      return {
+        ...state,
+        cartItems: payload,
+      };
+      case CART_ACTION_TYPES.SET_INCREMENT_CART_COUNTER:
+      return {
+        ...state,
+        cartCounter: [...state.quantity, payload]
+      };
+      case CART_ACTION_TYPES.SET_DECREMENT_CART_COUNTER:
+      return {
+        ...state,
+        cartCounter: [...state.quantity, payload]
+      };
+      case CART_ACTION_TYPES.SET_REMOVE_CART_ITEMS:
+      return {
+        ...state,
+        cartItems: payload,
+      };
+      case CART_ACTION_TYPES.SET_CART_ITEMS_TOTAL:
+      return {
+        ...state,
+        cartItems: payload,
+      };
+    default:
+      throw new Error(`unhandled type ${type} in CartReducer`);
+  }
+}
+
+const INITIAL_STATE ={
+  currentUser: null,
+  cartItem: [],
+  cartCounter: 0,
+  cartTotal: 0,
+  isCartOpen: false
+}
+
+
+
+
 export const CartProvider = ({children}) =>{
 
-    const [isCartOpen, setIsCartOpen] = useState(false);
+    const [{isCartOpen}, dispatch] = useReducer(cartReducer, INITIAL_STATE);
+    console.log(isCartOpen);
+    
+  
+
+  const setIsCartOpen = () => {
+    dispatch({ type: CART_ACTION_TYPES.SET_IS_CART_OPEN, payload: true });
+  }
+
+    
     const [cartItems, setCartItems] = useState([]);
     const [cartCounter, setCartCounter] = useState(0);
     const [cartTotal, setCartTotal] = useState(0);
